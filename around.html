@@ -36,9 +36,9 @@ body{font-family:var(--sans);background:var(--sand);color:var(--ink)}
 .hero h1{font-family:var(--serif);font-size:clamp(42px,9vw,80px);font-weight:300;color:#fff;line-height:.95;letter-spacing:-1px;position:relative;margin-bottom:12px}
 .hero h1 em{font-style:italic;color:var(--gold)}
 .hero-tagline{margin-top:18px;margin-bottom:8px;font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;position:relative}
-.hero-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px auto 0;max-width:640px;position:relative;padding:0 12px}
-.area-pill{padding:7px 13px;border-radius:50px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);cursor:pointer;white-space:nowrap}
-.area-pill:hover{background:rgba(255,255,255,0.14);color:#fff}
+
+
+
 
 .wave{width:100%;overflow:hidden;line-height:0;margin-top:34px}
 .wave svg{display:block;width:100%}
@@ -145,8 +145,8 @@ body.lang-en [data-gr]{display:none!important}
   .nav-btn{padding:4px 7px;font-size:10.5px;letter-spacing:0}
   .topnav-brand{font-size:14px;margin-right:6px}
   .area-section{padding:36px 16px 12px}
-  .hero-pills{gap:6px;padding:0 8px}
-  .area-pill{font-size:11px;padding:6px 11px}
+  
+  
 }
 @media(max-width:400px){
   .nav-btn{padding:4px 5px;font-size:10px}
@@ -159,6 +159,39 @@ body.lang-en [data-gr]{display:none!important}
 .nav-btn.active{color:var(--gold);background:rgba(200,169,110,0.12)}
 .topnav-brand{text-decoration:none}
 
+
+/* HERO PILLS */
+.hero-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin:22px auto 0;
+  padding:0 20px;
+  max-width:680px;
+  position:relative;
+}
+.area-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:8px 16px;
+  border-radius:50px;
+  border:1px solid rgba(255,255,255,0.25);
+  color:rgba(255,255,255,0.85);
+  font-size:13px;
+  font-weight:500;
+  text-decoration:none;
+  background:rgba(255,255,255,0.08);
+  white-space:nowrap;
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.area-pill:hover{background:rgba(255,255,255,0.18);color:#fff}
+@media(max-width:600px){
+  .area-pill{font-size:12px;padding:7px 13px}
+  .hero-pills{gap:7px}
+}
 </style>
 </head>
 <body class="lang-en">
