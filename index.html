@@ -33,9 +33,9 @@ body{font-family:var(--sans);background:var(--sand);color:var(--ink)}
 .hero{background:var(--deep);padding:56px 24px 0;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 120%,rgba(42,107,124,0.6) 0%,transparent 70%);pointer-events:none}
 .hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;position:relative}
-.hero h1{font-family:var(--serif);font-size:clamp(42px,9vw,80px);font-weight:300;color:#fff;line-height:.95;letter-spacing:-1px;position:relative}
+.hero h1{font-family:var(--serif);font-size:clamp(42px,9vw,80px);font-weight:300;color:#fff;line-height:.95;letter-spacing:-1px;position:relative;margin-bottom:12px}
 .hero h1 em{font-style:italic;color:var(--gold)}
-.hero-tagline{margin-top:18px;font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;position:relative}
+.hero-tagline{margin-top:18px;margin-bottom:8px;font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;position:relative}
 .hero-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px auto 0;max-width:620px;position:relative}
 .area-pill{padding:8px 16px;border-radius:50px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);cursor:pointer}
 .area-pill:hover{background:rgba(255,255,255,0.14);color:#fff}
@@ -180,12 +180,12 @@ body.lang-en [data-gr]{display:none!important}
       <span data-gr>Φαγητό · Ποτό · Παραλίες · Αξιοθέατα · Κρυμμένοι Θησαυροί</span>
     </p>
     <div class="hero-areabtn">
-      <span class="area-pill" onclick="showPage('portoheli')">⚓ Porto Heli</span>
-      <span class="area-pill" onclick="showPage('ermioni')">🏛 Ermioni</span>
-      <span class="area-pill" onclick="showPage('koilada')">🎣 Koilada</span>
-      <span class="area-pill" onclick="showPage('kranidi')">🏘 Kranidi</span>
-      <span class="area-pill" onclick="showPage('around')">✨ <span data-en>Around</span><span data-gr>Γύρω</span></span>
-      <span class="area-pill" onclick="showPage('sights')">🗺 <span data-en>Sights</span><span data-gr>Αξιοθέατα</span></span>
+      <a class="area-pill" href="portoheli.html">⚓ Porto Heli</a>
+      <a class="area-pill" href="ermioni.html">🏛 Ermioni</a>
+      <a class="area-pill" href="koilada.html">🎣 Koilada</a>
+      <a class="area-pill" href="kranidi.html">🏘 Kranidi</a>
+      <a class="area-pill" href="around.html">✨ <span data-en>Around</a><span data-gr>Γύρω</span></span>
+      <a class="area-pill" href="sights.html">🗺 <span data-en>Sights</a><span data-gr>Αξιοθέατα</span></span>
     </div>
     <div class="wave">
       <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -197,51 +197,51 @@ body.lang-en [data-gr]{display:none!important}
   <!-- Home summary cards -->
   <div style="max-width:960px;margin:48px auto 0;padding:0 20px;" class="home-cards-wrap">
 
-    <div class="card" onclick="showPage('portoheli')" style="cursor:pointer">
+    <div class="card" onclick="window.location.href='portoheli.html'" style="cursor:pointer">
       <div class="card-accent drink"></div>
       <div class="card-body">
         <span class="card-emoji">⚓</span>
         <p class="card-name">Porto Heli</p>
         <p class="card-desc" data-en>The lively hub of the area — harbour, restaurants, bars, beaches and the best nightlife in Ermionida. Home of Serelion Porto Heli.</p>
         <p class="card-desc" data-gr>Το κέντρο της περιοχής — λιμάνι, εστιατόρια, μπαρ, παραλίες και η καλύτερη νυχτερινή ζωή στην Ερμιονίδα. Εδώ βρίσκεται το Serelion Porto Heli.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('portoheli')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();window.location.href='portoheli.html'"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
       </div>
     </div>
 
-    <div class="card" onclick="showPage('ermioni')" style="cursor:pointer">
+    <div class="card" onclick="window.location.href='ermioni.html'" style="cursor:pointer">
       <div class="card-accent food"></div>
       <div class="card-body">
         <span class="card-emoji">🏛</span>
         <p class="card-name">Ermioni</p>
         <p class="card-desc" data-en>A stunning peninsula with the finest seafood, charming bars, hidden beaches and the magical Bisti forest.</p>
         <p class="card-desc" data-gr>Μια εντυπωσιακή χερσόνησος με εξαιρετικές θαλασσινές γεύσεις, γοητευτικά μπαρ, κρυφές παραλίες και το μαγευτικό δάσος Μπίστι.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('ermioni')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();window.location.href='ermioni.html'"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
       </div>
     </div>
 
-    <div class="card" onclick="showPage('koilada')" style="cursor:pointer">
+    <div class="card" onclick="window.location.href='koilada.html'" style="cursor:pointer">
       <div class="card-accent food"></div>
       <div class="card-body">
         <span class="card-emoji">🎣</span>
         <p class="card-name">Koilada</p>
         <p class="card-desc" data-en>A tiny authentic fishing village in a fjord-like bay with legendary tavernas and the famous Franchthi Cave nearby.</p>
         <p class="card-desc" data-gr>Ενα μικρό αυθεντικό ψαροχώρι σε έναν φιορδ-όμοιο κόλπο, με θρυλικές ταβέρνες και το διάσημο Σπήλαιο Φράγχθι κοντά.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('koilada')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();window.location.href='koilada.html'"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
       </div>
     </div>
 
-    <div class="card" onclick="showPage('kranidi')" style="cursor:pointer">
+    <div class="card" onclick="window.location.href='kranidi.html'" style="cursor:pointer">
       <div class="card-accent special"></div>
       <div class="card-body">
         <span class="card-emoji">🏘</span>
         <p class="card-name">Kranidi</p>
         <p class="card-desc" data-en>The authentic inland town — atmospheric mezedopoleio, secret garden dining and the best souvlaki in the region.</p>
         <p class="card-desc" data-gr>Η αυθεντική ενδοχώρα πόλη — ατμοσφαιρικό μεζεδοπωλείο, φαγητό σε μυστικό κήπο και το καλύτερο σουβλάκι της περιοχής.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('kranidi')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();window.location.href='kranidi.html'"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
       </div>
     </div>
 
-    <div class="card" onclick="showPage('around')" style="cursor:pointer">
+    <div class="card" onclick="window.location.href='around.html'" style="cursor:pointer">
       <div class="card-accent special"></div>
       <div class="card-body">
         <span class="card-emoji">✨</span>
@@ -249,11 +249,11 @@ body.lang-en [data-gr]{display:none!important}
         <p class="card-name" data-gr>Γύρω από την Περιοχή</p>
         <p class="card-desc" data-en>Special experiences worth a trip — luxury beach clubs, rooftop sunsets, hidden seaside tavernas with views of Hydra.</p>
         <p class="card-desc" data-gr>Ξεχωριστές εμπειρίες που αξίζουν την εκδρομή — πολυτελή beach clubs, ηλιοβασιλέματα σε ταράτσες, κρυφές ταβέρνες με θέα την Υδρα.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('around')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();window.location.href='around.html'"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
       </div>
     </div>
 
-    <div class="card" onclick="showPage('sights')" style="cursor:pointer">
+    <div class="card" onclick="window.location.href='sights.html'" style="cursor:pointer">
       <div class="card-accent sight"></div>
       <div class="card-body">
         <span class="card-emoji">🗺</span>
@@ -261,7 +261,7 @@ body.lang-en [data-gr]{display:none!important}
         <p class="card-name" data-gr>Αξιοθέατα &amp; Φύση</p>
         <p class="card-desc" data-en>Prehistoric caves, sinkholes with chapels inside, pine forests, ancient ruins under the sea, panoramic windmill views.</p>
         <p class="card-desc" data-gr>Προϊστορικά σπήλαια, δολίνες με εκκλησίες μέσα, πευκόδαση, αρχαία ερείπια κάτω από τη θάλασσα, θέα από μύλους.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('sights')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();window.location.href='sights.html'"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
       </div>
     </div>
 
