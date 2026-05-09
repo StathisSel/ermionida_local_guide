@@ -152,13 +152,13 @@ body.lang-en [data-gr]{display:none!important}
 <nav class="topnav">
   <a class="topnav-brand" href="index.html"><em>Ermionida</em> Guide</a>
   <div class="nav-links">
-    <a class="nav-btn active" href="index.html"><span data-en>🏠 Home</span><span data-gr>🏠 Αρχή</span></a>
+    <a class="nav-btn" href="index.html"><span data-en>🏠 Home</span><span data-gr>🏠 Αρχή</span></a>
     <a class="nav-btn" href="portoheli.html"><span data-en>⚓ Porto Heli</span><span data-gr>⚓ Πόρτο Χέλι</span></a>
     <a class="nav-btn" href="ermioni.html"><span data-en>🏛 Ermioni</span><span data-gr>🏛 Ερμιόνη</span></a>
     <a class="nav-btn" href="koilada.html"><span data-en>🎣 Koilada</span><span data-gr>🎣 Κοιλάδα</span></a>
     <a class="nav-btn" href="kranidi.html"><span data-en>🏘 Kranidi</span><span data-gr>🏘 Κρανίδι</span></a>
     <a class="nav-btn" href="around.html"><span data-en>✨ Around</span><span data-gr>✨ Γύρω Μας</span></a>
-    <a class="nav-btn" href="sights.html"><span data-en>🗺 Sights</span><span data-gr>🗺 Αξιοθέατα</span></a>
+    <a class="nav-btn active" href="sights.html"><span data-en>🗺 Sights</span><span data-gr>🗺 Αξιοθέατα</span></a>
     
   </div>
   <div class="lang-toggle">
@@ -167,111 +167,120 @@ body.lang-en [data-gr]{display:none!important}
   </div>
 </nav>
 <div class="hero">
-    <p class="hero-eyebrow">
-      <span data-en>Your Local Guide · Argolida, Greece</span>
-      <span data-gr>Ο Οδηγός Σου · Αργολίδα, Ελλάδα</span>
-    </p>
-    <h1><em>Ermionida</em><br>
-      <span data-en>Area Guide</span>
-      <span data-gr>Οδηγός Περιοχής</span>
-    </h1>
-    <p class="hero-tagline">
-      <span data-en>Food · Drinks · Beaches · Sights · Hidden Gems</span>
-      <span data-gr>Φαγητό · Ποτό · Παραλίες · Αξιοθέατα · Κρυμμένοι Θησαυροί</span>
-    </p>
-    <div class="hero-areabtn">
-      <span class="area-pill" onclick="showPage('portoheli')">⚓ Porto Heli</span>
-      <span class="area-pill" onclick="showPage('ermioni')">🏛 Ermioni</span>
-      <span class="area-pill" onclick="showPage('koilada')">🎣 Koilada</span>
-      <span class="area-pill" onclick="showPage('kranidi')">🏘 Kranidi</span>
-      <span class="area-pill" onclick="showPage('around')">✨ <span data-en>Around</span><span data-gr>Γύρω</span></span>
-      <span class="area-pill" onclick="showPage('sights')">🗺 <span data-en>Sights</span><span data-gr>Αξιοθέατα</span></span>
-    </div>
-    <div class="wave">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 C1350,52 1400,20 1440,30 L1440,60 L0,60Z" fill="#f5f0e8"/>
-      </svg>
-    </div>
+    <p class="hero-eyebrow">🗺 <span data-en>Explore the Region</span><span data-gr>Εξερεύνησε την Περιοχή</span></p>
+    <h1><span data-en>Sights &amp; <em>Nature</em></span><span data-gr>Αξιοθέατα &amp; <em>Φύση</em></span></h1>
+    <p class="hero-tagline" data-en>Caves · Sinkholes · Forests · Ancient Ruins · Viewpoints</p>
+    <p class="hero-tagline" data-gr>Σπήλαια · Δολίνες · Δάση · Αρχαία Ερείπια · Θέες</p>
+    <div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 C1350,52 1400,20 1440,30 L1440,60 L0,60Z" fill="#f5f0e8"/></svg></div>
   </div>
 
-  <!-- Home summary cards -->
-  <div style="max-width:960px;margin:48px auto 0;padding:0 20px;" class="home-cards-wrap">
+  <section class="area-section">
+    <div class="cat-group" data-type="sight" data-pg="sights">
+      <div class="cat-header"><div class="cat-icon sight">🗺</div>
+        <span class="cat-title" data-en>Must-See Sights</span><span class="cat-title" data-gr>Αξιοθέατα που Δεν Πρέπει να Χάσεις</span>
+      </div>
+      <div class="cards">
 
-    <div class="card" onclick="showPage('portoheli')" style="cursor:pointer">
-      <div class="card-accent drink"></div>
-      <div class="card-body">
-        <span class="card-emoji">⚓</span>
-        <p class="card-name">Porto Heli</p>
-        <p class="card-desc" data-en>The lively hub of the area — harbour, restaurants, bars, beaches and the best nightlife in Ermionida. Home of Serelion Porto Heli.</p>
-        <p class="card-desc" data-gr>Το κέντρο της περιοχής — λιμάνι, εστιατόρια, μπαρ, παραλίες και η καλύτερη νυχτερινή ζωή στην Ερμιονίδα. Εδώ βρίσκεται το Serelion Porto Heli.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('portoheli')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <!-- Franchthi -->
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Franchthi+Cave+Kilada+Greece','_blank')">
+          <div class="card-accent sight"></div>
+          <div class="card-body"><span class="card-emoji">🦴</span>
+            <span class="badge badge-sight">🏛 <span data-en>11,000 Years Old</span><span data-gr>11.000 χρόνων</span></span>
+            <p class="card-name" data-en>Franchthi Cave</p><p class="card-name" data-gr>Σπήλαιο Φράγχθι</p>
+            <p class="card-sub" data-en>Prehistoric Cave · Koilada · 15–20 min hike</p><p class="card-sub" data-gr>Προϊστορικό Σπήλαιο · Κοιλάδα · 15–20 λεπτά πεζοπορία</p>
+            <p class="card-desc" data-en>One of the most important prehistoric sites in Greece — continuously inhabited for over 35,000 years. A moderate rocky hike from the beach leads to the impressive cave. Follow the brown signs (not Google Maps!). Wear shoes and bring swimwear for the gorgeous nearby beach.</p>
+            <p class="card-desc" data-gr>Ενα από τα σημαντικότερα προϊστορικά μέρη στην Ελλάδα — κατοικήθηκε αδιάλειπτα για 35.000 χρόνια. Μέτρια πεζοπορία σε βραχώδες έδαφος από την παραλία. Ακολούθα τις καφέ πινακίδες (όχι Google Maps!). Φέρε παπούτσια και μαγιό για την υπέροχη παραλία κοντά.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.5 <span>(425)</span></div>
+              <a class="map-btn" href="https://maps.google.com/?q=Franchthi+Cave+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Didyma -->
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Didyma+sinkholes+dolines+Argolida+Greece','_blank')">
+          <div class="card-accent sight"></div>
+          <div class="card-body"><span class="card-emoji">🕳</span>
+            <span class="badge badge-sight">🌀 <span data-en>Unique in Greece</span><span data-gr>Μοναδικό στην Ελλάδα</span></span>
+            <p class="card-name" data-en>Didyma Sinkholes</p><p class="card-name" data-gr>Δολίνες Διδύμων</p>
+            <p class="card-sub" data-en>Geological Wonder · Chapels Inside · Free Entry</p><p class="card-sub" data-gr>Γεωλογικό Θαύμα · Εκκλησίες Μέσα · Δωρεάν</p>
+            <p class="card-desc" data-en>Two enormous circular sinkholes formed by collapsing caves — with tiny chapels built into the rock walls inside. Enter through a carved tunnel. Unique in all of Greece, cool in summer. Parking available. The second doline nearby is also worth the short walk.</p>
+            <p class="card-desc" data-gr>Δύο τεράστιες κυκλικές δολίνες που σχηματίστηκαν από κατάρρευση σπηλαίων — με μικρά εκκλησάκια χτισμένα στους βραχώδεις τοίχους. Είσοδος από σκαλισμένο τούνελ. Μοναδικό σε όλη την Ελλάδα, δροσερό το καλοκαίρι. Υπάρχει parking. Η δεύτερη δολίνη κοντά αξίζει τη μικρή βόλτα.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.8 <span>(608)</span></div>
+              <a class="map-btn" href="https://maps.google.com/?q=Didyma+sinkholes+dolines+Argolida+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Katafyki -->
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Katafyki+Canyon+Kranidi+Greece','_blank')">
+          <div class="card-accent sight"></div>
+          <div class="card-body"><span class="card-emoji">🧗</span>
+            <span class="badge badge-sight">🌿 <span data-en>Hiking &amp; Climbing</span><span data-gr>Πεζοπορία &amp; Αναρρίχηση</span></span>
+            <p class="card-name" data-en>Katafyki Canyon</p><p class="card-name" data-gr>Φαράγγι Καταφύκι</p>
+            <p class="card-sub" data-en>Canyon · Rock Climbing · Hiking · Kranidi</p><p class="card-sub" data-gr>Φαράγγι · Αναρρίχηση · Πεζοπορία · Κρανίδι</p>
+            <p class="card-desc" data-en>A beautiful canyon and climbing crag ideal for summer — shaded in the afternoons. Routes ranging 5a to 7b, easy approach, parking right next to the crags. Perfect for both casual hikers and climbers. Bring water and sun protection.</p>
+            <p class="card-desc" data-gr>Ενα υπέροχο φαράγγι ιδανικό για το καλοκαίρι — σκιασμένο τα απογεύματα. Διαδρομές 5α έως 7β, εύκολη πρόσβαση, parking ακριβώς δίπλα. Ιδανικό για πεζοπόρους και αναρριχητές. Φέρε νερό και αντηλιακό.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.5 <span>(113)</span></div>
+              <a class="map-btn" href="https://maps.google.com/?q=Katafyki+Canyon+Kranidi+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bisti Forest -->
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/SWSBsfwbrWxrSnDBA','_blank')">
+          <div class="card-accent sight"></div>
+          <div class="card-body"><span class="card-emoji">🌲</span>
+            <span class="badge badge-gem">💎 <span data-en>Magical Walk</span><span data-gr>Μαγευτική Βόλτα</span></span>
+            <p class="card-name" data-en>Bisti Forest &amp; Peninsula</p><p class="card-name" data-gr>Δάσος &amp; Χερσόνησος Μπίστι</p>
+            <p class="card-sub" data-en>Pine Forest · Sea Views · Ermioni</p><p class="card-sub" data-gr>Πευκόδασος · Θαλασσινή Θέα · Ερμιόνη</p>
+            <p class="card-desc" data-en>A dense pine forest covering the beautiful Bisti peninsula — the green jewel of Ermioni. Walk the coastal path through the trees with the sea on both sides. End at a small rocky cove for a swim. There's also a lovely hidden taverna inside the forest (Taverna To Bisti).</p>
+            <p class="card-desc" data-gr>Πυκνό πευκόδασος που καλύπτει τη χερσόνησο Μπίστι — το πράσινο διαμάντι της Ερμιόνης. Βόλτα στο παραλιακό μονοπάτι ανάμεσα στα πεύκα με θάλασσα και από τις δύο πλευρές. Κατάληξη σε βραχώδη κολυμβητική παραλία. Υπάρχει και η κρυφή ταβέρνα "Το Μπίστι" μέσα στο δάσος.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.5 <span></span></div>
+              <a class="map-btn" href="https://maps.app.goo.gl/SWSBsfwbrWxrSnDBA" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ancient Alieis -->
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/wNgt4ZpResVhaBxr9','_blank')">
+          <div class="card-accent sight"></div>
+          <div class="card-body"><span class="card-emoji">🤿</span>
+            <span class="badge badge-sight">🏛 <span data-en>Underwater Ruins</span><span data-gr>Υποβρύχια Ερείπια</span></span>
+            <p class="card-name" data-en>Ancient Alieis</p><p class="card-name" data-gr>Αρχαία Αλιείς</p>
+            <p class="card-sub" data-en>Submerged Ancient City · Porto Heli Bay</p><p class="card-sub" data-gr>Βυθισμένη Αρχαία Πόλη · Κόλπος Πόρτο Χέλι</p>
+            <p class="card-desc" data-en>The ancient city of Alieis (5th century BC) now lies submerged in the bay of Porto Heli — one of the most significant underwater archaeological sites in Greece. Snorkellers and divers can see ancient walls, roads and structures just below the surface. A truly extraordinary experience.</p>
+            <p class="card-desc" data-gr>Η αρχαία πόλη των Αλιέων (5ος αι. π.Χ.) βρίσκεται βυθισμένη στον κόλπο του Πόρτο Χέλι — ένας από τους πιο σημαντικούς υποβρύχιους αρχαιολογικούς χώρους στην Ελλάδα. Snorkellers και δύτες βλέπουν αρχαία τείχη, δρόμους και κτίσματα ακριβώς κάτω από την επιφάνεια. Μια πραγματικά εξαιρετική εμπειρία.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.6 <span></span></div>
+              <a class="map-btn" href="https://maps.app.goo.gl/wNgt4ZpResVhaBxr9" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ermioni Windmill Viewpoint -->
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/4Mp9pqJ6bN21c6QEA','_blank')">
+          <div class="card-accent sight"></div>
+          <div class="card-body"><span class="card-emoji">⛵</span>
+            <span class="badge badge-view">🌅 <span data-en>360° Panorama</span><span data-gr>360° Πανόραμα</span></span>
+            <p class="card-name" data-en>Ermioni Windmill Viewpoint</p><p class="card-name" data-gr>Σημείο Θέας Μύλου Ερμιόνης</p>
+            <p class="card-sub" data-en>Panoramic Views · Old Windmill · End of Peninsula</p><p class="card-sub" data-gr>Πανοραμική Θέα · Παλιός Μύλος · Ακρη Χερσονήσου</p>
+            <p class="card-desc" data-en>Walk to the very tip of the Ermioni peninsula where a picturesque old windmill and lighthouse stand. Breathtaking 360° views over the Saronic Gulf, Hydra, Dokos and the open sea. Best at sunset. Easy 15-minute walk through the Bisti forest path.</p>
+            <p class="card-desc" data-gr>Βόλτα μέχρι την άκρη της χερσονήσου της Ερμιόνης, όπου ένας γραφικός παλιός μύλος και φάρος στέκονται. Εκπληκτική 360° θέα στον Σαρωνικό, Υδρα, Δοκό και ανοιχτή θάλασσα. Καλύτερο στο ηλιοβασίλεμα. Εύκολη 15λεπτη βόλτα μέσα από το μονοπάτι του Μπίστι.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.7 <span></span></div>
+              <a class="map-btn" href="https://maps.app.goo.gl/4Mp9pqJ6bN21c6QEA" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="card" onclick="showPage('ermioni')" style="cursor:pointer">
-      <div class="card-accent food"></div>
-      <div class="card-body">
-        <span class="card-emoji">🏛</span>
-        <p class="card-name">Ermioni</p>
-        <p class="card-desc" data-en>A stunning peninsula with the finest seafood, charming bars, hidden beaches and the magical Bisti forest.</p>
-        <p class="card-desc" data-gr>Μια εντυπωσιακή χερσόνησος με εξαιρετικές θαλασσινές γεύσεις, γοητευτικά μπαρ, κρυφές παραλίες και το μαγευτικό δάσος Μπίστι.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('ermioni')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-    <div class="card" onclick="showPage('koilada')" style="cursor:pointer">
-      <div class="card-accent food"></div>
-      <div class="card-body">
-        <span class="card-emoji">🎣</span>
-        <p class="card-name">Koilada</p>
-        <p class="card-desc" data-en>A tiny authentic fishing village in a fjord-like bay with legendary tavernas and the famous Franchthi Cave nearby.</p>
-        <p class="card-desc" data-gr>Ενα μικρό αυθεντικό ψαροχώρι σε έναν φιορδ-όμοιο κόλπο, με θρυλικές ταβέρνες και το διάσημο Σπήλαιο Φράγχθι κοντά.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('koilada')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-    <div class="card" onclick="showPage('kranidi')" style="cursor:pointer">
-      <div class="card-accent special"></div>
-      <div class="card-body">
-        <span class="card-emoji">🏘</span>
-        <p class="card-name">Kranidi</p>
-        <p class="card-desc" data-en>The authentic inland town — atmospheric mezedopoleio, secret garden dining and the best souvlaki in the region.</p>
-        <p class="card-desc" data-gr>Η αυθεντική ενδοχώρα πόλη — ατμοσφαιρικό μεζεδοπωλείο, φαγητό σε μυστικό κήπο και το καλύτερο σουβλάκι της περιοχής.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('kranidi')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-    <div class="card" onclick="showPage('around')" style="cursor:pointer">
-      <div class="card-accent special"></div>
-      <div class="card-body">
-        <span class="card-emoji">✨</span>
-        <p class="card-name" data-en>Around the Area</p>
-        <p class="card-name" data-gr>Γύρω από την Περιοχή</p>
-        <p class="card-desc" data-en>Special experiences worth a trip — luxury beach clubs, rooftop sunsets, hidden seaside tavernas with views of Hydra.</p>
-        <p class="card-desc" data-gr>Ξεχωριστές εμπειρίες που αξίζουν την εκδρομή — πολυτελή beach clubs, ηλιοβασιλέματα σε ταράτσες, κρυφές ταβέρνες με θέα την Υδρα.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('around')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-    <div class="card" onclick="showPage('sights')" style="cursor:pointer">
-      <div class="card-accent sight"></div>
-      <div class="card-body">
-        <span class="card-emoji">🗺</span>
-        <p class="card-name" data-en>Sights &amp; Nature</p>
-        <p class="card-name" data-gr>Αξιοθέατα &amp; Φύση</p>
-        <p class="card-desc" data-en>Prehistoric caves, sinkholes with chapels inside, pine forests, ancient ruins under the sea, panoramic windmill views.</p>
-        <p class="card-desc" data-gr>Προϊστορικά σπήλαια, δολίνες με εκκλησίες μέσα, πευκόδαση, αρχαία ερείπια κάτω από τη θάλασσα, θέα από μύλους.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('sights')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-  </div>
-  <footer style="margin-top:48px">
-    <p data-en>Made with ❤ · <strong>Ermionida, Argolida, Greece</strong></p>
-    <p data-gr>Φτιαγμένο με ❤ · <strong>Ερμιονίδα, Αργολίδα, Ελλάδα</strong></p>
-    <p data-en style="margin-top:6px">Tap any card to open Google Maps · More spots added regularly</p>
-    <p data-gr style="margin-top:6px">Πατήστε κάθε κάρτα για Google Maps · Νέα μέρη προστίθενται τακτικά</p>
-  </footer>
+  </section>
+  <footer><p data-en>Made with ❤ · <strong>Ermionida, Argolida, Greece</strong> · Tap any card for Google Maps</p><p data-gr>Φτιαγμένο με ❤ · <strong>Ερμιονίδα, Αργολίδα, Ελλάδα</strong> · Πατήστε κάρτα για Google Maps</p></footer>
 </div>
 <script>
 function setLang(lang) {

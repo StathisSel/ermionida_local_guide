@@ -152,10 +152,10 @@ body.lang-en [data-gr]{display:none!important}
 <nav class="topnav">
   <a class="topnav-brand" href="index.html"><em>Ermionida</em> Guide</a>
   <div class="nav-links">
-    <a class="nav-btn active" href="index.html"><span data-en>🏠 Home</span><span data-gr>🏠 Αρχή</span></a>
+    <a class="nav-btn" href="index.html"><span data-en>🏠 Home</span><span data-gr>🏠 Αρχή</span></a>
     <a class="nav-btn" href="portoheli.html"><span data-en>⚓ Porto Heli</span><span data-gr>⚓ Πόρτο Χέλι</span></a>
     <a class="nav-btn" href="ermioni.html"><span data-en>🏛 Ermioni</span><span data-gr>🏛 Ερμιόνη</span></a>
-    <a class="nav-btn" href="koilada.html"><span data-en>🎣 Koilada</span><span data-gr>🎣 Κοιλάδα</span></a>
+    <a class="nav-btn active" href="koilada.html"><span data-en>🎣 Koilada</span><span data-gr>🎣 Κοιλάδα</span></a>
     <a class="nav-btn" href="kranidi.html"><span data-en>🏘 Kranidi</span><span data-gr>🏘 Κρανίδι</span></a>
     <a class="nav-btn" href="around.html"><span data-en>✨ Around</span><span data-gr>✨ Γύρω Μας</span></a>
     <a class="nav-btn" href="sights.html"><span data-en>🗺 Sights</span><span data-gr>🗺 Αξιοθέατα</span></a>
@@ -167,112 +167,120 @@ body.lang-en [data-gr]{display:none!important}
   </div>
 </nav>
 <div class="hero">
-    <p class="hero-eyebrow">
-      <span data-en>Your Local Guide · Argolida, Greece</span>
-      <span data-gr>Ο Οδηγός Σου · Αργολίδα, Ελλάδα</span>
-    </p>
-    <h1><em>Ermionida</em><br>
-      <span data-en>Area Guide</span>
-      <span data-gr>Οδηγός Περιοχής</span>
-    </h1>
-    <p class="hero-tagline">
-      <span data-en>Food · Drinks · Beaches · Sights · Hidden Gems</span>
-      <span data-gr>Φαγητό · Ποτό · Παραλίες · Αξιοθέατα · Κρυμμένοι Θησαυροί</span>
-    </p>
-    <div class="hero-areabtn">
-      <span class="area-pill" onclick="showPage('portoheli')">⚓ Porto Heli</span>
-      <span class="area-pill" onclick="showPage('ermioni')">🏛 Ermioni</span>
-      <span class="area-pill" onclick="showPage('koilada')">🎣 Koilada</span>
-      <span class="area-pill" onclick="showPage('kranidi')">🏘 Kranidi</span>
-      <span class="area-pill" onclick="showPage('around')">✨ <span data-en>Around</span><span data-gr>Γύρω</span></span>
-      <span class="area-pill" onclick="showPage('sights')">🗺 <span data-en>Sights</span><span data-gr>Αξιοθέατα</span></span>
-    </div>
-    <div class="wave">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 C1350,52 1400,20 1440,30 L1440,60 L0,60Z" fill="#f5f0e8"/>
-      </svg>
-    </div>
+    <p class="hero-eyebrow">🎣 <span data-en>The Fishing Village</span><span data-gr>Το Ψαροχώρι</span></p>
+    <h1><em>Koilada</em></h1>
+    <p class="hero-tagline" data-en>Legendary Tavernas · Franchthi Cave · Bay Views</p>
+    <p class="hero-tagline" data-gr>Θρυλικές Ταβέρνες · Σπήλαιο Φράγχθι · Θέα Κόλπου</p>
+    <div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 C1350,52 1400,20 1440,30 L1440,60 L0,60Z" fill="#f5f0e8"/></svg></div>
   </div>
 
-  <!-- Home summary cards -->
-  <div style="max-width:960px;margin:48px auto 0;padding:0 20px;" class="home-cards-wrap">
+  <section class="area-section">
+    <div class="cat-group" data-type="food" data-pg="koilada">
+      <div class="cat-header"><div class="cat-icon food">🐟</div>
+        <span class="cat-title" data-en>Restaurants &amp; Tavernas</span><span class="cat-title" data-gr>Εστιατόρια &amp; Ταβέρνες</span>
+      </div>
+      <div class="cards">
 
-    <div class="card" onclick="showPage('portoheli')" style="cursor:pointer">
-      <div class="card-accent drink"></div>
-      <div class="card-body">
-        <span class="card-emoji">⚓</span>
-        <p class="card-name">Porto Heli</p>
-        <p class="card-desc" data-en>The lively hub of the area — harbour, restaurants, bars, beaches and the best nightlife in Ermionida. Home of Serelion Porto Heli.</p>
-        <p class="card-desc" data-gr>Το κέντρο της περιοχής — λιμάνι, εστιατόρια, μπαρ, παραλίες και η καλύτερη νυχτερινή ζωή στην Ερμιονίδα. Εδώ βρίσκεται το Serelion Porto Heli.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('portoheli')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Douglas+1969+Kilada+Greece','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🐟</span>
+            <span class="badge badge-top">⭐ <span data-en>Legendary</span><span data-gr>Θρυλικό</span></span>
+            <p class="card-name">Douglas 1969</p>
+            <p class="card-sub" data-en>Fish Taverna · Family Legacy</p><p class="card-sub" data-gr>Ψαροταβέρνα · Οικογενειακή Κληρονομιά</p>
+            <p class="card-desc" data-en>Guests travel from Dubai just for this taverna. The freshest fish shown to you before it goes on the grill. Vintage family photos, fireplace in winter. Book ahead in summer!</p>
+            <p class="card-desc" data-gr>Επισκέπτες ταξιδεύουν από το Ντουμπάι γι' αυτή την ταβέρνα. Το φρεσκότερο ψάρι σου το δείχνουν πριν το ψήσουν. Vintage φωτογραφίες, τζάκι τον χειμώνα. Κράτηση απαραίτητη!</p>
+            <div class="card-footer"><div class="stars">★ 4.6 <span>(774)</span></div><a class="map-btn" href="https://maps.google.com/?q=Douglas+1969+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=To+Mouragio+Kilada+Greece','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🐙</span>
+            <p class="card-name">To Mouragio</p>
+            <p class="card-sub" data-en>Greek Taverna · Seafront</p><p class="card-sub" data-gr>Ελληνική Ταβέρνα · Παραλιακή</p>
+            <p class="card-desc" data-en>Simple and delicious local food right on the waterfront. Great tzatziki, octopus, fried sardines and proper fries. Very local, very real. (Cats included!)</p>
+            <p class="card-desc" data-gr>Απλό και νόστιμο τοπικό φαγητό ακριβώς στην παραλία. Εξαιρετικό τζατζίκι, χταπόδι, τηγανητές σαρδέλες. Αυθεντικό μέχρι τελευταία λεπτομέρεια. (Γάτες included!)</p>
+            <div class="card-footer"><div class="stars">★ 4.6 <span>(567)</span></div><a class="map-btn" href="https://maps.google.com/?q=To+Mouragio+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="card" onclick="showPage('ermioni')" style="cursor:pointer">
-      <div class="card-accent food"></div>
-      <div class="card-body">
-        <span class="card-emoji">🏛</span>
-        <p class="card-name">Ermioni</p>
-        <p class="card-desc" data-en>A stunning peninsula with the finest seafood, charming bars, hidden beaches and the magical Bisti forest.</p>
-        <p class="card-desc" data-gr>Μια εντυπωσιακή χερσόνησος με εξαιρετικές θαλασσινές γεύσεις, γοητευτικά μπαρ, κρυφές παραλίες και το μαγευτικό δάσος Μπίστι.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('ermioni')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+    <!-- Souvlaki Koilada -->
+    <div class="cat-group" data-type="food" data-pg="koilada">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon food">🥙</div>
+        <span class="cat-title" data-en>Souvlaki &amp; Grill</span><span class="cat-title" data-gr>Σουβλάκι &amp; Ψητά</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Souvlaki+Germanos+Kilada+Greece','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🥙</span>
+            <span class="badge badge-gem">💎 <span data-en>Local Secret</span><span data-gr>Τοπικό Μυστικό</span></span>
+            <p class="card-name" data-en>Souvlaki Germanos</p><p class="card-name" data-gr>Σουβλάκι Γερμανός</p>
+            <p class="card-sub" data-en>Gyros · Souvlaki · Village Salad · Kilada</p><p class="card-sub" data-gr>Γύρος · Σουβλάκι · Χωριάτικη · Κοιλάδα</p>
+            <p class="card-desc" data-en>A true hidden gem — simple, fresh and absolutely delicious. 100% fresh pork gyros, outstanding chicken souvlaki and a legendary village salad. Unbelievably low prices for the quality and quantity. Locals come here regularly, which says everything. Views towards the Franchthi cave.</p>
+            <p class="card-desc" data-gr>Αληθινός κρυμμένος θησαυρός — απλό, φρέσκο και απολύτως νόστιμο. 100% φρέσκος χοιρινός γύρος, εξαιρετικό κοτόσουβλο και θρυλική χωριάτικη σαλάτα. Απίστευτα χαμηλές τιμές για την ποιότητα και ποσότητα. Οι ντόπιοι έρχονται τακτικά — αυτό λέει τα πάντα. Θέα προς το σπήλαιο Φράγχθι.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.5 <span>(318)</span></div>
+              <a class="map-btn" href="https://maps.google.com/?q=Souvlaki+Germanos+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Παμε+για+Σουβλάκι+Kilada+Greece','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🔥</span>
+            <span class="badge badge-top">⭐ <span data-en>Best Value</span><span data-gr>Καλύτερη Αξία</span></span>
+            <p class="card-name" data-en>Pame gia Souvlaki</p><p class="card-name" data-gr>Παμε για Σουβλάκι</p>
+            <p class="card-sub" data-en>Souvlaki · Gyros · Kilada · Open Daily</p><p class="card-sub" data-gr>Σουβλάκι · Γύρος · Κοιλάδα · Κάθε Μέρα</p>
+            <p class="card-desc" data-en>The best souvlaki experience in Kilada — insanely generous portions, perfect grilling, quick and friendly service. A family of 5 can eat for under €40 including drinks. The chicken skewers are a standout. Regulars come back every single day.</p>
+            <p class="card-desc" data-gr>Η καλύτερη σουβλακική εμπειρία στην Κοιλάδα — τρελά γενναιόδωρες μερίδες, τέλειο ψήσιμο, γρήγορο και φιλικό σέρβις. Οικογένεια 5 ατόμων τρώει με κάτω από 40€ συμπεριλαμβανομένων ποτών. Τα κοτόκαλαμάκια είναι εξαιρετικά. Οι τακτικοί επιστρέφουν κάθε μέρα.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.7 <span>(276)</span></div>
+              <a class="map-btn" href="https://maps.google.com/?q=Παμε+για+Σουβλάκι+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="card" onclick="showPage('koilada')" style="cursor:pointer">
-      <div class="card-accent food"></div>
-      <div class="card-body">
-        <span class="card-emoji">🎣</span>
-        <p class="card-name">Koilada</p>
-        <p class="card-desc" data-en>A tiny authentic fishing village in a fjord-like bay with legendary tavernas and the famous Franchthi Cave nearby.</p>
-        <p class="card-desc" data-gr>Ενα μικρό αυθεντικό ψαροχώρι σε έναν φιορδ-όμοιο κόλπο, με θρυλικές ταβέρνες και το διάσημο Σπήλαιο Φράγχθι κοντά.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('koilada')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
+    <div class="cat-group" data-type="drink" data-pg="koilada">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon drink">☕</div>
+        <span class="cat-title" data-en>Café &amp; Bar</span><span class="cat-title" data-gr>Καφέ &amp; Μπαρ</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Retro+Cafe+Kilada+Greece','_blank')">
+          <div class="card-accent drink"></div>
+          <div class="card-body"><span class="card-emoji">🌴</span>
+            <span class="badge badge-top">⭐ <span data-en>Must Stop</span><span data-gr>Απαραίτητο</span></span>
+            <p class="card-name">Retro Cafe</p>
+            <p class="card-sub" data-en>Café · Bar · Burgers · All Day</p><p class="card-sub" data-gr>Καφέ · Μπαρ · Burgers · Ολη Μέρα</p>
+            <p class="card-desc" data-en>Slick and modern in the middle of a fishing village. Hawaiian garden with sea views, great burgers, waffles. The village social hub.</p>
+            <p class="card-desc" data-gr>Μοντέρνο στη μέση ψαροχωριού. Χαβανέζικος κήπος με θέα στη θάλασσα, υπέροχα burgers, waffles. Το κοινωνικό κέντρο του χωριού.</p>
+            <div class="card-footer"><div class="stars">★ 4.7 <span>(726)</span></div><a class="map-btn" href="https://maps.google.com/?q=Retro+Cafe+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Happy+Flo+Kilada+Greece','_blank')">
+          <div class="card-accent drink"></div>
+          <div class="card-body"><span class="card-emoji">😊</span>
+            <p class="card-name">Happy Flo</p>
+            <p class="card-sub" data-en>Café · Bar · Homemade Food</p><p class="card-sub" data-gr>Καφέ · Μπαρ · Σπιτικό Φαγητό</p>
+            <p class="card-desc" data-en>A beautiful family-run spot with homemade lemonade, creative ciabattas and the warmest welcome. Guests return three times in a week.</p>
+            <p class="card-desc" data-gr>Ομορφο οικογενειακό μαγαζί με σπιτική λεμονάδα, δημιουργικά ciabattas και η πιο ζεστή υποδοχή. Επισκέπτες επιστρέφουν τρεις φορές την εβδομάδα.</p>
+            <div class="card-footer"><div class="stars">★ 4.6 <span>(360)</span></div><a class="map-btn" href="https://maps.google.com/?q=Happy+Flo+Kilada+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
       </div>
     </div>
-
-    <div class="card" onclick="showPage('kranidi')" style="cursor:pointer">
-      <div class="card-accent special"></div>
-      <div class="card-body">
-        <span class="card-emoji">🏘</span>
-        <p class="card-name">Kranidi</p>
-        <p class="card-desc" data-en>The authentic inland town — atmospheric mezedopoleio, secret garden dining and the best souvlaki in the region.</p>
-        <p class="card-desc" data-gr>Η αυθεντική ενδοχώρα πόλη — ατμοσφαιρικό μεζεδοπωλείο, φαγητό σε μυστικό κήπο και το καλύτερο σουβλάκι της περιοχής.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('kranidi')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-    <div class="card" onclick="showPage('around')" style="cursor:pointer">
-      <div class="card-accent special"></div>
-      <div class="card-body">
-        <span class="card-emoji">✨</span>
-        <p class="card-name" data-en>Around the Area</p>
-        <p class="card-name" data-gr>Γύρω από την Περιοχή</p>
-        <p class="card-desc" data-en>Special experiences worth a trip — luxury beach clubs, rooftop sunsets, hidden seaside tavernas with views of Hydra.</p>
-        <p class="card-desc" data-gr>Ξεχωριστές εμπειρίες που αξίζουν την εκδρομή — πολυτελή beach clubs, ηλιοβασιλέματα σε ταράτσες, κρυφές ταβέρνες με θέα την Υδρα.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('around')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-    <div class="card" onclick="showPage('sights')" style="cursor:pointer">
-      <div class="card-accent sight"></div>
-      <div class="card-body">
-        <span class="card-emoji">🗺</span>
-        <p class="card-name" data-en>Sights &amp; Nature</p>
-        <p class="card-name" data-gr>Αξιοθέατα &amp; Φύση</p>
-        <p class="card-desc" data-en>Prehistoric caves, sinkholes with chapels inside, pine forests, ancient ruins under the sea, panoramic windmill views.</p>
-        <p class="card-desc" data-gr>Προϊστορικά σπήλαια, δολίνες με εκκλησίες μέσα, πευκόδαση, αρχαία ερείπια κάτω από τη θάλασσα, θέα από μύλους.</p>
-        <div class="card-footer"><span class="map-btn" onclick="event.stopPropagation();showPage('sights')"><span data-en>Explore →</span><span data-gr>Εξερεύνηση →</span></span></div>
-      </div>
-    </div>
-
-  </div>
-  <footer style="margin-top:48px">
-    <p data-en>Made with ❤ · <strong>Ermionida, Argolida, Greece</strong></p>
-    <p data-gr>Φτιαγμένο με ❤ · <strong>Ερμιονίδα, Αργολίδα, Ελλάδα</strong></p>
-    <p data-en style="margin-top:6px">Tap any card to open Google Maps · More spots added regularly</p>
-    <p data-gr style="margin-top:6px">Πατήστε κάθε κάρτα για Google Maps · Νέα μέρη προστίθενται τακτικά</p>
-  </footer>
-</div>
+  </section>
+  <footer><p data-en>Made with ❤ · <strong>Koilada, Ermionida</strong></p><p data-gr>Φτιαγμένο με ❤ · <strong>Κοιλάδα, Ερμιονίδα</strong></p></footer>
 <script>
 function setLang(lang) {
   document.body.className = 'lang-' + lang;

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ermionida Guide</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+:root{
+  --sand:#f5f0e8;--sea:#2a6b7c;--deep:#1a3d47;--coral:#c9624b;
+  --gold:#c8a96e;--ink:#1e2d31;--soft:#6b8c96;--sage:#5a7a5e;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'DM Sans',-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--sand);color:var(--ink)}
+
+/* NAV */
+.topnav{position:sticky;top:0;z-index:200;background:rgba(26,61,71,0.97);backdrop-filter:blur(12px);display:flex;align-items:center;padding:0 16px;gap:4px;border-bottom:1px solid rgba(200,169,110,0.2);flex-wrap:wrap;min-height:52px}
+.topnav-brand{font-family:var(--serif);font-size:18px;font-weight:300;color:#fff;letter-spacing:0.5px;margin-right:10px;cursor:pointer;white-space:nowrap}
+.topnav-brand em{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:2px;flex:1;flex-wrap:wrap}
+.nav-btn{padding:6px 11px;border-radius:6px;border:none;background:transparent;color:rgba(255,255,255,0.65);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.nav-btn:hover{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-btn.active{color:var(--gold);background:rgba(200,169,110,0.12)}
+.lang-toggle{margin-left:auto;display:flex;border:1px solid rgba(255,255,255,0.2);border-radius:20px;overflow:hidden;flex-shrink:0}
+.lang-btn{padding:5px 12px;border:none;background:transparent;color:rgba(255,255,255,0.55);font-family:var(--sans);font-size:11px;font-weight:600;cursor:pointer;transition:all 0.18s}
+.lang-btn.active{background:var(--gold);color:var(--deep)}
+
+/* HERO */
+.hero{background:var(--deep);padding:56px 24px 0;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 120%,rgba(42,107,124,0.6) 0%,transparent 70%);pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;position:relative}
+.hero h1{font-family:var(--serif);font-size:clamp(42px,9vw,80px);font-weight:300;color:#fff;line-height:.95;letter-spacing:-1px;position:relative}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-tagline{margin-top:18px;font-size:14px;color:rgba(255,255,255,0.5);font-weight:300;position:relative}
+.hero-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px auto 0;max-width:620px;position:relative}
+.area-pill{padding:8px 16px;border-radius:50px;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.75);font-size:12px;font-weight:500;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);cursor:pointer}
+.area-pill:hover{background:rgba(255,255,255,0.14);color:#fff}
+.wave{width:100%;overflow:hidden;line-height:0;margin-top:34px}
+.wave svg{display:block;width:100%}
+
+/* FILTER BAR */
+.filter-bar{position:sticky;top:52px;z-index:100;background:rgba(245,240,232,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(42,107,124,0.12);padding:11px 20px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.filter-btn{padding:6px 15px;border-radius:50px;border:1.5px solid rgba(42,107,124,0.25);background:transparent;color:var(--soft);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.filter-btn:hover{border-color:var(--sea);color:var(--sea)}
+.filter-btn.active{background:var(--sea);border-color:var(--sea);color:#fff}
+
+/* AREA SECTION */
+.area-section{max-width:960px;margin:0 auto;padding:48px 20px 12px}
+.area-kicker{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.area-title{font-family:var(--serif);font-size:clamp(30px,5.5vw,48px);font-weight:300;color:var(--deep);line-height:1}
+.area-title em{font-style:italic}
+.area-desc{margin-top:10px;font-size:14px;color:var(--soft);max-width:520px;line-height:1.65}
+.area-rule{height:1px;background:linear-gradient(to right,var(--sea),transparent);opacity:.25;margin-top:18px}
+
+/* CATEGORY */
+.cat-group{margin-top:32px}
+.cat-group.hidden{display:none!important}
+.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cat-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.cat-icon.food{background:rgba(201,98,75,0.1)}
+.cat-icon.drink{background:rgba(42,107,124,0.1)}
+.cat-icon.beach{background:rgba(200,169,110,0.15)}
+.cat-icon.special{background:rgba(90,122,94,0.12)}
+.cat-icon.sight{background:rgba(138,122,62,0.12)}
+.cat-title{font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--soft)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;justify-content:center}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.cards.one-card{grid-template-columns:minmax(0,360px)}
+.cards.two-cards{grid-template-columns:repeat(2,minmax(0,360px))}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 14px rgba(26,61,71,0.08);transition:transform 0.22s,box-shadow 0.22s;cursor:pointer;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(26,61,71,0.14)}
+.card-accent{height:4px;width:100%;flex-shrink:0}
+.card-accent.food{background:linear-gradient(to right,#c9624b,#e8956e)}
+.card-accent.drink{background:linear-gradient(to right,#2a6b7c,#5fa8bb)}
+.card-accent.beach{background:linear-gradient(to right,#c8a96e,#d4b97a)}
+.card-accent.special{background:linear-gradient(to right,#5a7a5e,#7aab80)}
+.card-accent.sight{background:linear-gradient(to right,#8a7a3e,#b8a45e)}
+.card-body{padding:17px 18px 18px;flex:1;display:flex;flex-direction:column}
+.card-emoji{font-size:22px;margin-bottom:9px;display:block;line-height:1}
+.badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;padding:3px 8px;border-radius:50px;margin-bottom:8px}
+.badge-gem{background:rgba(90,122,94,0.12);color:#3d6040}
+.badge-view{background:rgba(42,107,124,0.1);color:#2a6b7c}
+.badge-top{background:rgba(200,169,110,0.2);color:#7a5a1a}
+.badge-sight{background:rgba(138,122,62,0.12);color:#6a5a1a}
+.card-name{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--deep);margin-bottom:3px;line-height:1.15}
+.card-sub{font-size:11px;font-weight:500;letter-spacing:1.4px;text-transform:uppercase;color:var(--soft);margin-bottom:10px}
+.card-desc{font-size:13.5px;color:#5a6f73;line-height:1.62;margin-bottom:14px;flex:1}
+.card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.stars{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--gold);font-weight:600}
+.stars span{color:var(--soft);font-size:11px;font-weight:400}
+.map-btn{font-size:11px;font-weight:500;color:var(--sea);text-decoration:none;border:1.5px solid rgba(42,107,124,0.3);padding:5px 12px;border-radius:50px;transition:all 0.18s;white-space:nowrap}
+.map-btn:hover{background:var(--sea);color:#fff;border-color:var(--sea)}
+
+/* SEPARATOR */
+.area-sep{max-width:960px;margin:48px auto 0;padding:0 20px;display:flex;align-items:center;gap:16px;opacity:.18}
+.area-sep::before,.area-sep::after{content:'';flex:1;height:1px;background:var(--sea)}
+.area-sep-dot{width:5px;height:5px;border-radius:50%;background:var(--sea);flex-shrink:0}
+
+/* FOOTER */
+footer{text-align:center;padding:44px 20px 32px;color:var(--soft);font-size:12px;letter-spacing:.5px;margin-top:28px;border-top:1px solid rgba(42,107,124,0.1)}
+footer strong{color:var(--sea)}
+footer p+p{margin-top:6px}
+
+/* HOME CARDS */
+.home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;max-width:960px;margin:48px auto 0;padding:0 20px}
+@media(max-width:900px){.home-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.home-grid{grid-template-columns:1fr}}
+
+/* SERELION */
+.serelion-wrap{max-width:960px;margin:32px auto 0;padding:0 20px}
+.serelion-card{background:linear-gradient(135deg,#1a3d47 0%,#2a6b7c 100%);border-radius:20px;overflow:hidden;box-shadow:0 8px 40px rgba(26,61,71,0.22);display:grid;grid-template-columns:1fr auto;position:relative}
+.serelion-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 90% 50%,rgba(200,169,110,0.12) 0%,transparent 70%);pointer-events:none}
+.serelion-body{padding:28px 32px}
+.serelion-label{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.serelion-name{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:300;color:#fff;line-height:1;margin-bottom:4px}
+.serelion-name em{font-style:italic;color:var(--gold)}
+.serelion-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:16px}
+.serelion-desc{font-size:14px;color:rgba(255,255,255,0.75);line-height:1.65;max-width:520px;margin-bottom:22px}
+.serelion-contacts{display:flex;flex-wrap:wrap;gap:10px}
+.serelion-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:50px;font-size:12px;font-weight:600;text-decoration:none;transition:all 0.2s;white-space:nowrap}
+.serelion-btn.primary{background:var(--gold);color:var(--deep)}
+.serelion-btn.ghost{border:1.5px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.85)}
+.serelion-btn.ghost:hover{background:rgba(255,255,255,0.1)}
+.serelion-badge-wrap{padding:24px 28px 24px 0;display:flex;flex-direction:column;align-items:flex-end;justify-content:center;gap:8px;position:relative;z-index:1}
+.serelion-emoji{font-size:52px;line-height:1}
+.serelion-tag{font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;background:rgba(200,169,110,0.2);color:var(--gold);padding:4px 10px;border-radius:50px;text-align:center}
+@media(max-width:580px){.serelion-card{grid-template-columns:1fr}.serelion-badge-wrap{display:none}.serelion-body{padding:24px 20px}}
+
+/* LANGUAGE */
+body.lang-gr [data-en]{display:none!important}
+body.lang-en [data-gr]{display:none!important}
+
+/* MOBILE */
+@media(max-width:540px){.hero{padding:44px 16px 0}.topnav{padding:0 10px}.nav-btn{padding:5px 8px;font-size:11px}.topnav-brand{font-size:15px}.area-section{padding:36px 16px 12px}}
+
+
+.nav-btn{display:inline-block;text-decoration:none;padding:6px 11px;border-radius:6px;border:none;background:transparent;color:rgba(255,255,255,0.65);font-family:var(--sans);font-size:12px;font-weight:500;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+.nav-btn:hover{color:#fff;background:rgba(255,255,255,0.08)}
+.nav-btn.active{color:var(--gold);background:rgba(200,169,110,0.12)}
+.topnav-brand{text-decoration:none}
+
+</style>
+</head>
+<body class="lang-en">
+<nav class="topnav">
+  <a class="topnav-brand" href="index.html"><em>Ermionida</em> Guide</a>
+  <div class="nav-links">
+    <a class="nav-btn" href="index.html"><span data-en>🏠 Home</span><span data-gr>🏠 Αρχή</span></a>
+    <a class="nav-btn active" href="portoheli.html"><span data-en>⚓ Porto Heli</span><span data-gr>⚓ Πόρτο Χέλι</span></a>
+    <a class="nav-btn" href="ermioni.html"><span data-en>🏛 Ermioni</span><span data-gr>🏛 Ερμιόνη</span></a>
+    <a class="nav-btn" href="koilada.html"><span data-en>🎣 Koilada</span><span data-gr>🎣 Κοιλάδα</span></a>
+    <a class="nav-btn" href="kranidi.html"><span data-en>🏘 Kranidi</span><span data-gr>🏘 Κρανίδι</span></a>
+    <a class="nav-btn" href="around.html"><span data-en>✨ Around</span><span data-gr>✨ Γύρω Μας</span></a>
+    <a class="nav-btn" href="sights.html"><span data-en>🗺 Sights</span><span data-gr>🗺 Αξιοθέατα</span></a>
+    
+  </div>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('gr')">ΕΛ</button>
+  </div>
+</nav>
+<div class="hero" style="padding-bottom:0">
+    <p class="hero-eyebrow">⚓ <span data-en>The Hub</span><span data-gr>Το Κέντρο</span></p>
+    <h1>Porto <em>Heli</em></h1>
+    <p class="hero-tagline" data-en>Food · Drinks · Beaches · Nightlife</p>
+    <p class="hero-tagline" data-gr>Φαγητό · Ποτό · Παραλίες · Νυχτερινή Ζωή</p>
+    <div class="wave"><svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 C1350,52 1400,20 1440,30 L1440,60 L0,60Z" fill="#f5f0e8"/></svg></div>
+  </div>
+
+  <div class="filter-bar" data-page-filter="portoheli">
+    <button class="filter-btn active" data-filter="all">
+      <span data-en>All</span><span data-gr>Ολα</span>
+    </button>
+    <button class="filter-btn" data-filter="food">🍽 <span data-en>Food</span><span data-gr>Φαγητό</span></button>
+    <button class="filter-btn" data-filter="drink">🍹 <span data-en>Drinks</span><span data-gr>Ποτό</span></button>
+    <button class="filter-btn" data-filter="beach">🏖 <span data-en>Beaches</span><span data-gr>Παραλίες</span></button>
+  </div>
+
+  <!-- ★ SERELION FEATURED ★ -->
+  <div class="serelion-wrap">
+    <div class="serelion-card">
+      <div class="serelion-body">
+        <span class="serelion-label" data-en>🏡 Staying with us? Your home base in Porto Heli</span>
+        <span class="serelion-label" data-gr>🏡 Μένετε μαζί μας; Η βάση σας στο Πόρτο Χέλι</span>
+        <p class="serelion-name">Serelion <em>Porto Heli</em></p>
+        <p class="serelion-sub" data-en>Luxury Accommodation · Porto Heli · Ermionida</p>
+        <p class="serelion-sub" data-gr>Πολυτελής Διαμονή · Πόρτο Χέλι · Ερμιονίδα</p>
+        <p class="serelion-desc" data-en>Welcome to Serelion — your private retreat in Porto Heli. Enjoy the perfect balance of comfort, elegance and warm Greek hospitality. Everything in this guide is within easy reach from us. We are always here to help you make the most of your stay!</p>
+        <p class="serelion-desc" data-gr>Καλώς ήρθατε στο Serelion — η ιδιωτική σας απόδραση στο Πόρτο Χέλι. Απολαύστε την τέλεια ισορροπία άνεσης, κομψότητας και ζεστής ελληνικής φιλοξενίας. Ολα σε αυτόν τον οδηγό βρίσκονται σε εύκολη απόσταση από εμάς. Είμαστε πάντα εδώ για να σας βοηθήσουμε!</p>
+        <div class="serelion-contacts">
+          <a class="serelion-btn primary" href="https://maps.app.goo.gl/XCdaDPhKE8jHHSHc9" target="_blank">📍 <span data-en>Find us on Maps</span><span data-gr>Βρείτε μας στο Maps</span></a>
+          <a class="serelion-btn ghost" href="tel:+306972734012">📞 <span data-en>Call us</span><span data-gr>Καλέστε μας</span></a>
+          <a class="serelion-btn ghost" href="mailto:info@serelionportoheli.com">✉️ <span data-en>Email us</span><span data-gr>Email</span></a>
+          <a class="serelion-btn ghost" href="https://www.instagram.com/serelion_portoheli" target="_blank">📷 Instagram</a>
+          <a class="serelion-btn ghost" href="https://www.serelionportoheli.com" target="_blank">🌐 <span data-en>Website</span><span data-gr>Ιστοσελίδα</span></a>
+        </div>
+      </div>
+      <div class="serelion-badge-wrap">
+        <span class="serelion-emoji">🏡</span>
+        <span class="serelion-tag" data-en>Your Host</span>
+        <span class="serelion-tag" data-gr>Ο Οικοδεσπότης Σας</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="area-section">
+
+    <!-- Fish -->
+    <div class="cat-group" data-type="food" data-pg="portoheli">
+      <div class="cat-header"><div class="cat-icon food">🐟</div>
+        <span class="cat-title" data-en>Fish Taverns</span><span class="cat-title" data-gr>Ψαροταβέρνες</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/XCdaDPhKE8jHHSHc9','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🐟</span>
+            <span class="badge badge-top">⭐ <span data-en>Since 1958</span><span data-gr>Από το 1958</span></span>
+            <p class="card-name">Παπαδιάς 1958</p>
+            <p class="card-sub" data-en>Traditional Fish Tavern · Porto Heli</p><p class="card-sub" data-gr>Παραδοσιακή Ψαροταβέρνα · Πόρτο Χέλι</p>
+            <p class="card-desc" data-en>One of the oldest and most beloved fish tavernas in Porto Heli — a true institution since 1958. Fresh fish, traditional recipes and the authentic taste of the Argolic Gulf. A classic that never disappoints.</p>
+            <p class="card-desc" data-gr>Μια από τις παλαιότερες και πιο αγαπημένες ψαροταβέρνες στο Πόρτο Χέλι — αληθινή institution από το 1958. Φρέσκα ψάρια, παραδοσιακές συνταγές και αυθεντική γεύση του Αργολικού κόλπου. Ένα κλασικό που δεν απογοητεύει ποτέ.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.7 <span></span></div>
+              <a class="map-btn" href="https://maps.app.goo.gl/XCdaDPhKE8jHHSHc9" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/uXBmLmPAan29gfnE9','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body">
+            <span class="card-emoji">🦑</span>
+            <span class="badge badge-top">⭐ Top Rated</span>
+            <p class="card-name">Ouzeri tou Psara</p>
+            <p class="card-sub" data-en>Seafood Restaurant · Harbour Terrace</p>
+            <p class="card-sub" data-gr>Θαλασσινά · Ταράτσα Λιμανιού</p>
+            <p class="card-desc" data-en>Elevated harbour terrace, seafood-only menu. Standout carpaccio, marinated mackerel and bisque linguine. Always busy — reserve ahead!</p>
+            <p class="card-desc" data-gr>Υπερυψωμένη ταράτσα λιμανιού, μενού μόνο θαλασσινών. Εξαιρετικό καρπάτσιο, μαρινάτη σκουμπρί και linguine bisque. Κάντε κράτηση!</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.7 <span>(766)</span></div>
+              <a class="map-btn" href="https://maps.app.goo.gl/uXBmLmPAan29gfnE9" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Grill -->
+    <div class="cat-group" data-type="food" data-pg="portoheli">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon food">🥩</div>
+        <span class="cat-title" data-en>Souvlaki &amp; Grill</span><span class="cat-title" data-gr>Σουβλάκι &amp; Ψητά</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/PcNn6bEp5kBc2pUS8','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body">
+            <span class="card-emoji">🥙</span>
+            <p class="card-name">Chill 'n' Grill</p>
+            <p class="card-sub" data-en>Souvlaki · Takeaway</p><p class="card-sub" data-gr>Σουβλάκι · Delivery</p>
+            <p class="card-desc" data-en>Fresh gyros, chicken souvlaki and legendary saganaki by the harbour. Dog-friendly, very affordable. Takeaway available.</p>
+            <p class="card-desc" data-gr>Φρέσκος γύρος, κοτόπουλο σουβλάκι και θρυλικό σαγανάκι δίπλα στο λιμάνι. Δέχονται σκύλους, πολύ προσιτές τιμές. Delivery διαθέσιμο.</p>
+            <div class="card-footer"><div class="stars">★ 4.3 <span>(197)</span></div><a class="map-btn" href="https://maps.app.goo.gl/PcNn6bEp5kBc2pUS8" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Kati Psinetai -->
+    <div class="cat-group" data-type="food" data-pg="portoheli">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon food">🔥</div>
+        <span class="cat-title" data-en>Modern Greek</span><span class="cat-title" data-gr>Σύγχρονη Ελληνική Κουζίνα</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/o2CmFkNFYfsR59gK7','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🔥</span>
+            <span class="badge badge-top">⭐ <span data-en>Top Rated</span><span data-gr>Κορυφαίο</span></span>
+            <p class="card-name">Κάτι Ψήνεται</p>
+            <p class="card-sub" data-en>Modern Greek Cuisine · Grill · Porto Heli</p><p class="card-sub" data-gr>Σύγχρονη Ελληνική · Ψητά · Πόρτο Χέλι</p>
+            <p class="card-desc" data-en>One of the most exciting restaurants in Porto Heli — modern Greek cuisine with quality grilled meats, creative mezedes and an excellent wine list. Great atmosphere, attentive service. A firm favourite with both locals and visitors.</p>
+            <p class="card-desc" data-gr>Ένα από τα πιο συναρπαστικά εστιατόρια στο Πόρτο Χέλι — σύγχρονη ελληνική κουζίνα με ποιοτικά ψητά κρέατα, δημιουργικούς μεζέδες και εξαιρετική λίστα κρασιών. Υπέροχη ατμόσφαιρα, προσεκτικό σέρβις. Σταθερά αγαπημένο ντόπιων και επισκεπτών.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.7 <span></span></div>
+              <a class="map-btn" href="https://maps.app.goo.gl/o2CmFkNFYfsR59gK7" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pizza -->
+    <div class="cat-group" data-type="food" data-pg="portoheli">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon food">🍕</div>
+        <span class="cat-title" data-en>Pizza &amp; Pasta</span><span class="cat-title" data-gr>Πίτσα &amp; Ζυμαρικά</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/LaB83Y4hcpHSVnAT8','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🍕</span>
+            <p class="card-name">Artigiano</p>
+            <p class="card-sub" data-en>Pizza · Pasta · Wood Oven</p><p class="card-sub" data-gr>Πίτσα · Ζυμαρικά · Ξυλόφουρνος</p>
+            <p class="card-desc" data-en>Wood-fired thin-crust pizzas full of flavour. Fresh pasta and generous portions. Classic Italian comfort in the centre of Porto Heli.</p>
+            <p class="card-desc" data-gr>Λεπτές πίτσες από ξυλόφουρνο, γεμάτες γεύση. Φρέσκα ζυμαρικά και γενναιόδωρες μερίδες. Κλασική ιταλική άνεση στο κέντρο.</p>
+            <div class="card-footer"><div class="stars">★ 4.1 <span>(713)</span></div><a class="map-btn" href="https://maps.app.goo.gl/LaB83Y4hcpHSVnAT8" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/yf6b7dTFSrnZgq2VA','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🍝</span>
+            <span class="badge badge-view">🌊 <span data-en>Harbour View</span><span data-gr>Θέα Λιμάνι</span></span>
+            <p class="card-name">Piazza Italia</p>
+            <p class="card-sub" data-en>Pizza · Pasta · Panoramic View</p><p class="card-sub" data-gr>Πίτσα · Ζυμαρικά · Πανόραμα</p>
+            <p class="card-desc" data-en>First-floor terrace with spectacular harbour views. Excellent pizzas and creamy lasagna praised as the best ever.</p>
+            <p class="card-desc" data-gr>Ταράτσα πρώτου ορόφου με θέα στο λιμάνι. Εξαιρετικές πίτσες και κρεμώδης λαζάνια που έχει χαρακτηριστεί η καλύτερη ever.</p>
+            <div class="card-footer"><div class="stars">★ 4.1 <span>(401)</span></div><a class="map-btn" href="https://maps.app.goo.gl/yf6b7dTFSrnZgq2VA" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Burger & Gelato -->
+    <div class="cat-group" data-type="food" data-pg="portoheli">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon food">🍔</div>
+        <span class="cat-title" data-en>Burger &amp; Sweet</span><span class="cat-title" data-gr>Burger &amp; Γλυκό</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/LDTcSWLsD979SDKTA','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🍔</span>
+            <span class="badge badge-top">🏆 <span data-en>Best Burger</span><span data-gr>Καλύτερο Burger</span></span>
+            <p class="card-name">Favela</p>
+            <p class="card-sub" data-en>Burger Bar · Open till 3:30 AM</p><p class="card-sub" data-gr>Burger Bar · Ανοιχτά μέχρι 3:30 π.μ.</p>
+            <p class="card-desc" data-en>Possibly the best burgers in Argolida — perfect grilling, soft bun. Onion rings, nuggets, Caesar salad. The go-to late-night spot.</p>
+            <p class="card-desc" data-gr>Πιθανώς τα καλύτερα burgers στην Αργολίδα. Κρεμμυδάκια, nuggets, σαλάτα Caesar. Ο αγαπημένος μαγαζί για αργά.</p>
+            <div class="card-footer"><div class="stars">★ 4.8 <span>(168)</span></div><a class="map-btn" href="https://maps.app.goo.gl/LDTcSWLsD979SDKTA" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Solo+Gelato+Porto+Heli+Greece','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🍦</span>
+            <p class="card-name">Solo Gelato</p>
+            <p class="card-sub" data-en>Gelato · Crepes · Coffee</p><p class="card-sub" data-gr>Gelato · Κρέπες · Καφές</p>
+            <p class="card-desc" data-en>Go-to spot for great gelato, coffee and crepes from morning till midnight. Many rotating flavours — the perfect afternoon stop.</p>
+            <p class="card-desc" data-gr>Το καλύτερο gelato, καφές και κρέπες από το πρωί ως τα μεσάνυχτα. Πολλές γεύσεις που αλλάζουν — ιδανικό απογευματινό στάδιο.</p>
+            <div class="card-footer"><div class="stars">★ 4.5 <span>(554)</span></div><a class="map-btn" href="https://maps.google.com/?q=Solo+Gelato+Porto+Heli+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Παραδοσιακό+Ζαχαροπλαστείο+Porto+Cheli+Greece','_blank')">
+          <div class="card-accent food"></div>
+          <div class="card-body"><span class="card-emoji">🥐</span>
+            <span class="badge badge-gem">💎 <span data-en>Traditional &amp; Authentic</span><span data-gr>Παραδοσιακό &amp; Αυθεντικό</span></span>
+            <p class="card-name" data-en>Paradosiako Zacharoplasteio</p><p class="card-name" data-gr>Ζαχαροπλαστείο Παραδοσιακό</p>
+            <p class="card-sub" data-en>Patisserie · Ice Cream · Sweets · Porto Heli</p><p class="card-sub" data-gr>Ζαχαροπλαστείο · Παγωτό · Γλυκά · Πόρτο Χέλι</p>
+            <p class="card-desc" data-en>The beloved traditional pastry shop of Porto Heli — outstanding ice cream with generous scoops and great variety of flavours. The staff are famously friendly, letting you taste before you choose. Also great coffee. A true local institution open evenings till 1 AM.</p>
+            <p class="card-desc" data-gr>Το αγαπημένο παραδοσιακό ζαχαροπλαστείο του Πόρτο Χέλι — εξαιρετικό παγωτό με γενναιόδωρες μπάλες και μεγάλη ποικιλία γεύσεων. Το προσωπικό είναι φιλικό και σε αφήνει να δοκιμάσεις πριν διαλέξεις. Εξαιρετικός καφές επίσης. Αληθινή τοπική ιδρυματική βάση — ανοιχτά βράδια μέχρι 1 π.μ.</p>
+            <div class="card-footer">
+              <div class="stars">★ 4.4 <span>(174)</span></div>
+              <a class="map-btn" href="https://maps.google.com/?q=Παραδοσιακό+Ζαχαροπλαστείο+Porto+Cheli+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Drinks PH -->
+    <div class="cat-group" data-type="drink" data-pg="portoheli">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon drink">🍹</div>
+        <span class="cat-title" data-en>Bars &amp; Cafés</span><span class="cat-title" data-gr>Μπαρ &amp; Καφέ</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Ostria+cafe+cocktail+bar+Porto+Heli+Greece','_blank')">
+          <div class="card-accent drink"></div>
+          <div class="card-body"><span class="card-emoji">🌊</span>
+            <span class="badge badge-view">🌅 <span data-en>Best Location</span><span data-gr>Καλύτερη Θέση</span></span>
+            <p class="card-name">Ostria</p>
+            <p class="card-sub" data-en>Cocktail Bar · Café · Restaurant</p><p class="card-sub" data-gr>Cocktail Bar · Καφέ · Εστιατόριο</p>
+            <p class="card-desc" data-en>Right on the water's edge, the best seat in Porto Heli. Sunset cocktails, sashimi, bao buns. Always packed by 9:30 PM — arrive early.</p>
+            <p class="card-desc" data-gr>Ακριβώς στην άκρη του νερού, η καλύτερη θέση στο Πόρτο Χέλι. Cocktails ηλιοβασιλέματος, sashimi, bao. Πάντα γεμάτο στις 9:30 μ.μ.</p>
+            <div class="card-footer"><div class="stars">★ 4.4 <span>(1,420)</span></div><a class="map-btn" href="https://maps.google.com/?q=Ostria+cafe+cocktail+bar+Porto+Heli+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Old+Cafe+Porto+Heli+Greece','_blank')">
+          <div class="card-accent drink"></div>
+          <div class="card-body"><span class="card-emoji">☕</span>
+            <p class="card-name">Old Cafe</p>
+            <p class="card-sub" data-en>Café · Bar · Harbour Views</p><p class="card-sub" data-gr>Καφέ · Μπαρ · Θέα Λιμάνι</p>
+            <p class="card-desc" data-en>A magical harbour spot with the warmest hosts in town. Espressos, frappes, great cocktails. Regulars return every summer, year after year.</p>
+            <p class="card-desc" data-gr>Μαγευτικό σημείο στο λιμάνι με τους πιο ζεστούς ιδιοκτήτες. Espresso, φραπέ, cocktails. Οι τακτικοί γυρίζουν κάθε καλοκαίρι.</p>
+            <div class="card-footer"><div class="stars">★ 4.7 <span>(362)</span></div><a class="map-btn" href="https://maps.google.com/?q=Old+Cafe+Porto+Heli+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/bLY8HDk787K4MYcv9','_blank')">
+          <div class="card-accent drink"></div>
+          <div class="card-body"><span class="card-emoji">🍸</span>
+            <span class="badge badge-top">🏆 <span data-en>Best Cocktails</span><span data-gr>Καλύτερα Cocktails</span></span>
+            <p class="card-name">Sokaki</p>
+            <p class="card-sub" data-en>Cocktail Bar · Open 24h</p><p class="card-sub" data-gr>Cocktail Bar · Ανοιχτά 24 ώρες</p>
+            <p class="card-desc" data-en>The coolest cocktail menu in the region. Pure drinks, great house music, very reasonable prices. Try the signature "Laterna" cocktail.</p>
+            <p class="card-desc" data-gr>Το πιο cool cocktail menu στην περιοχή. Αγνά ποτά, υπέροχη μουσική, πολύ λογικές τιμές. Δοκίμασε το "Laterna".</p>
+            <div class="card-footer"><div class="stars">★ 4.7 <span>(323)</span></div><a class="map-btn" href="https://maps.app.goo.gl/bLY8HDk787K4MYcv9" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Beaches PH -->
+    <div class="cat-group" data-type="beach" data-pg="portoheli">
+      <div class="cat-header" style="margin-top:26px"><div class="cat-icon beach">🏖</div>
+        <span class="cat-title" data-en>Beaches</span><span class="cat-title" data-gr>Παραλίες</span>
+      </div>
+      <div class="cards">
+
+        <div class="card" onclick="window.open('https://maps.app.goo.gl/Qdiwvqz4Xz2aQQrw5','_blank')">
+          <div class="card-accent beach"></div>
+          <div class="card-body"><span class="card-emoji">🤍</span>
+            <span class="badge badge-top">⭐ <span data-en>Exceptional Water</span><span data-gr>Εξαιρετικά Νερά</span></span>
+            <p class="card-name" data-en>Kostoula / Kova Beach</p><p class="card-name" data-gr>Παραλία Κοστουλα / Κοβα</p>
+            <p class="card-sub" data-en>White Quartz Sand · Crystal Water · Kosta</p><p class="card-sub" data-gr>Λευκή Αμμος Χαλαζία · Κρυστάλλινο Νερό · Κόστα</p>
+            <p class="card-desc" data-en>A small but exceptional beach with unique white quartz sand and warm, crystal-clear water. Natural shade in the morning. Park along the road and take the short path through the vegetation. Quiet and beautiful — one of the most special beaches in the area.</p>
+            <p class="card-desc" data-gr>Μια μικρή αλλά εξαιρετική παραλία με μοναδική λευκή άμμο χαλαζία και ζεστά, κρυστάλλινα νερά. Φυσική σκιά το πρωί. Παρκάρισε κατά μήκος του δρόμου και κάνε την κοντή διαδρομή μέσα από τη βλάστηση. Ήσυχη και υπέροχη — μια από τις πιο ξεχωριστές παραλίες της περιοχής.</p>
+            <div class="card-footer"><div class="stars">★ 4.6 <span>(447)</span></div><a class="map-btn" href="https://maps.app.goo.gl/Qdiwvqz4Xz2aQQrw5" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Salty+Ververoda+Beach+bar+Ermionida+Greece','_blank')">
+          <div class="card-accent beach"></div>
+          <div class="card-body"><span class="card-emoji">🌊</span>
+            <span class="badge badge-gem">💎 <span data-en>Hidden Gem</span><span data-gr>Κρυμμένος Θησαυρός</span></span>
+            <p class="card-name">Ververoda / Salty Bar</p>
+            <p class="card-sub" data-en>Beach Bar · Sunbeds · Parking</p><p class="card-sub" data-gr>Beach Bar · Ξαπλώστρες · Parking</p>
+            <p class="card-desc" data-en>Beautiful calm water and the beloved "Salty" beach bar with legendary mango margaritas. Easy parking. Peaceful and gorgeous.</p>
+            <p class="card-desc" data-gr>Ομορφα ήρεμα νερά και το αγαπημένο "Salty" beach bar με τις θρυλικές mango margaritas. Εύκολο parking. Ειρηνικό και υπέροχο.</p>
+            <div class="card-footer"><div class="stars">★ 4.3 <span>(355)</span></div><a class="map-btn" href="https://maps.google.com/?q=Salty+Ververoda+Beach+bar+Ermionida+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+        <div class="card" onclick="window.open('https://maps.google.com/?q=Paralia+Kounoupiou+Porto+Heli+Greece','_blank')">
+          <div class="card-accent beach"></div>
+          <div class="card-body"><span class="card-emoji">🏝</span>
+            <span class="badge badge-gem">💎 <span data-en>Sandy &amp; Wild</span><span data-gr>Αμμουδερή &amp; Φυσική</span></span>
+            <p class="card-name" data-en>Kounoupi Beach</p><p class="card-name" data-gr>Παραλία Κουνουπι</p>
+            <p class="card-sub" data-en>Secluded · Sandy · Natural · No facilities</p><p class="card-sub" data-gr>Απόμερη · Αμμουδερή · Φυσική · Χωρίς υποδομές</p>
+            <p class="card-desc" data-en>A beautiful secluded sandy bay surrounded by trees — one of the best natural beaches near Porto Heli. Park by the small church and walk down to the beach. No sunbeds, no facilities — just pure nature and crystal water. Stunning at sunset.</p>
+            <p class="card-desc" data-gr>Μια υπέροχη απόμερη αμμουδερή παραλία περιτριγυρισμένη από δέντρα — μια από τις καλύτερες φυσικές παραλίες κοντά στο Πόρτο Χέλι. Παρκάρισε κοντά στο εκκλησάκι και κατέβα με τα πόδια. Χωρίς ξαπλώστρες και υποδομές — καθαρή φύση και κρυστάλλινο νερό. Εντυπωσιακή στο ηλιοβασίλεμα.</p>
+            <div class="card-footer"><div class="stars">★ 4.8 <span>(276)</span></div><a class="map-btn" href="https://maps.google.com/?q=Paralia+Kounoupiou+Porto+Heli+Greece" target="_blank" onclick="event.stopPropagation()">Maps ↗</a></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <footer><p data-en>Made with ❤ · <strong>Porto Heli, Ermionida</strong> · Tap any card for Google Maps</p><p data-gr>Φτιαγμένο με ❤ · <strong>Πόρτο Χέλι, Ερμιονίδα</strong> · Πατήστε κάρτα για Google Maps</p></footer>
+<script>
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(function(b,i){
+    b.classList.toggle('active',(i===0&&lang==='en')||(i===1&&lang==='gr'));
+  });
+  try{localStorage.setItem('g_lang',lang);}catch(e){}
+}
+document.addEventListener('click',function(e){
+  var fb=e.target.closest?e.target.closest('.filter-btn'):null;
+  if(!fb)return;
+  var bar=fb.closest('.filter-bar');
+  if(!bar)return;
+  bar.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
+  fb.classList.add('active');
+  var f=fb.getAttribute('data-filter');
+  var pg=bar.getAttribute('data-page-filter');
+  document.querySelectorAll('.cat-group[data-pg="'+pg+'"]').forEach(function(g){
+    g.classList.toggle('hidden',f!=='all'&&g.getAttribute('data-type')!==f);
+  });
+});
+(function(){
+  try{var l=localStorage.getItem('g_lang');if(l==='gr')setLang('gr');}catch(e){}
+})();
+</script>
+</body>
+</html>
